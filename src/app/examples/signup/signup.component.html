@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-register">
+                          <h3 class="title">Admin Control Center</h3>
+                          <form class="register-form" #f=ngForm [formGroup]="loginForm" (ngSubmit)="login(f)">
+                              <label>Email</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                </div>
+
+                                  <input type="email" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" formControlName="email" required>
+                              </div>
+
+                              <label>Password</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                  <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" formControlName="password" required>
+                              </div>
+                              <button class="btn btn-danger btn-block btn-round" [disabled]="!loginForm.valid">Login</button>
+                              <div *ngIf="isLoading">
+                                <img src="../../../assets/img/tail-spin.svg" alt="">
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

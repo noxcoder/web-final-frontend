@@ -1,0 +1,71 @@
+<div class="wrapper">
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mr-auto ml-auto">
+                    <div class="tim-title">
+                        <h6>Most people don't want to tell their secrets. Be different, tell us yours.</h6>
+                    </div>
+
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <ngb-tabset [justify]="'center'">
+                                <ngb-tab title="Contact">
+                                    <ng-template ngbTabContent>
+                                        <form class="register-form" #f=ngForm [formGroup]="contactForm" (ngSubmit)="sendForm(f)">
+                                            <label>Email</label>
+                                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="nc-icon nc-email-85"></i>
+                                                    </span>
+                                                </div>
+
+                                                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" formControlName="email">
+                                            </div>
+                                            <label>Name</label>
+                                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="nc-icon nc-email-85"></i>
+                                                    </span>
+                                                </div>
+
+                                                <input type="text" class="form-control" placeholder="Jane" (focus)="focus=true" (blur)="focus=false" formControlName="name">
+                                            </div>
+                                            <label>Your Secret</label>
+                                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="nc-icon nc-email-85"></i>
+                                                    </span>
+                                                </div>
+
+                                                <textarea type="text" class="form-control" placeholder="My secret" (focus)="focus=true" (blur)="focus=false" aria-placeholder="My secret" formControlName="body"></textarea>
+                                            </div>
+                                            <br>
+                                            <small>Ermm, send to <em>rudefish</em>, he might have something for you</small>
+                                            <button class="btn btn-danger btn-block btn-round" [disabled]="!contactForm.valid">Tell us</button>
+                                            <br>
+                                            <div *ngIf="isLoading">
+                                                <img src="../../../assets/img/tail-spin.svg" alt="">
+                                            </div>
+                                        </form>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab title="Flag">
+                                    <ng-template ngbTabContent>
+                                        <p>Your flag is <em>{{ halfFlag }}</em></p>
+                                        <p>Oops, sorry. I have said too much.</p>
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
